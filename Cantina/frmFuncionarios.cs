@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using MosaicoSolutions.ViaCep;
 
 namespace Cantina
 {
@@ -63,7 +64,6 @@ namespace Cantina
 
         public void habilitarcampos()
         {
-            txtcod.Enabled = true;
             txtnome.Enabled = true;
             txtemail.Enabled = true;
             txtbairro.Enabled = true;
@@ -79,6 +79,27 @@ namespace Cantina
         }
 
 
+        //CRIANDO METODO HABILITAR LIMPAR CAMPOS
+        public void Limparcampos()
+        {
+            txtcod.Clear();
+            txtnome.Clear();
+            txtemail.Clear();
+            txtbairro.Clear();
+            txtcidade.Clear();
+            txtendereco.Clear();
+            txtnumero.Clear();
+            mskcep.Clear();
+            mskcpf.Clear();
+            msktelefone.Clear();
+            cbbestado.Text = "";
+            btnCadastrar.Enabled = false;
+            btnAlterar.Enabled = false;
+            btnLimpar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnPesquisar.Enabled = false;
+        }
+
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             frmMenuPrincipal abrir = new frmMenuPrincipal();
@@ -91,6 +112,57 @@ namespace Cantina
             habilitarcampos();
             btnNovo.Enabled = false;
             txtnome.Focus();
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            //verificando se os campos estão preenchidos 
+            if (txtnome.Text.Equals("")||
+                txtemail.Text.Equals("")||
+                txtbairro.Text.Equals("") ||
+                txtcidade.Text.Equals("") ||
+                txtendereco.Text.Equals("") || 
+                txtnumero.Text.Equals("") ||
+                mskcpf.Text.Equals("")||
+                mskcep.Text.Equals("")||
+                msktelefone.Text.Equals(""))
+            {
+                MessageBox.Show("Favor inserir valores","Sistema",MessageBoxButtons.OK,MessageBoxIcon.Error,MessageBoxDefaultButton.Button1);
+            }
+            else
+            {
+                MessageBox.Show("Cadastrado com sucesso", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                desabilitarcampos();
+                Limparcampos();
+
+            }
+        }
+
+        //criando metodo busca cep
+
+        public void buscaCEP(String cep)
+        {
+            var viaCEPService = ViaCepService.Default();
+            var endereco = viaCEPService.ObterEndereco(cep);
+            txtendereco.Text = endereco.Logradouro;
+            txtbairro.Text = endereco.Bairro;
+            txtcidade.Text = endereco.Localidade;
+            cbbestado.Text = endereco.UF;
+
+        }
+        private void mskcep_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //buscar cep
+                buscaCEP(mskcep.Text);
+                txtnumero.Focus();
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            Limparcampos();
         }
     }
 }

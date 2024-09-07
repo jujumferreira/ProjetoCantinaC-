@@ -39,6 +39,20 @@ namespace Cantina
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtemail = new System.Windows.Forms.TextBox();
+            this.msktelefone = new System.Windows.Forms.MaskedTextBox();
+            this.cbbestado = new System.Windows.Forms.ComboBox();
+            this.lbltelefone = new System.Windows.Forms.Label();
+            this.lblestado = new System.Windows.Forms.Label();
+            this.lblbairro = new System.Windows.Forms.Label();
+            this.txtnumero = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtbairro = new System.Windows.Forms.TextBox();
+            this.lblcidade = new System.Windows.Forms.Label();
+            this.txtcidade = new System.Windows.Forms.TextBox();
+            this.lblnumero = new System.Windows.Forms.Label();
+            this.txtendereco = new System.Windows.Forms.TextBox();
+            this.lblendereco = new System.Windows.Forms.Label();
             this.mskcep = new System.Windows.Forms.MaskedTextBox();
             this.lblCep = new System.Windows.Forms.Label();
             this.mskcpf = new System.Windows.Forms.MaskedTextBox();
@@ -47,20 +61,6 @@ namespace Cantina
             this.lblNome = new System.Windows.Forms.Label();
             this.txtcod = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.txtendereco = new System.Windows.Forms.TextBox();
-            this.lblendereco = new System.Windows.Forms.Label();
-            this.txtcidade = new System.Windows.Forms.TextBox();
-            this.lblnumero = new System.Windows.Forms.Label();
-            this.txtbairro = new System.Windows.Forms.TextBox();
-            this.lblcidade = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.txtnumero = new System.Windows.Forms.TextBox();
-            this.lblbairro = new System.Windows.Forms.Label();
-            this.lblestado = new System.Windows.Forms.Label();
-            this.lbltelefone = new System.Windows.Forms.Label();
-            this.cbbestado = new System.Windows.Forms.ComboBox();
-            this.msktelefone = new System.Windows.Forms.MaskedTextBox();
-            this.txtemail = new System.Windows.Forms.TextBox();
             this.pnlCRUD.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +103,7 @@ namespace Cantina
             this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnPesquisar
             // 
@@ -151,6 +152,7 @@ namespace Cantina
             this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnNovo
             // 
@@ -197,6 +199,121 @@ namespace Cantina
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados pessoais";
             // 
+            // txtemail
+            // 
+            this.txtemail.Location = new System.Drawing.Point(413, 136);
+            this.txtemail.Name = "txtemail";
+            this.txtemail.Size = new System.Drawing.Size(263, 26);
+            this.txtemail.TabIndex = 24;
+            // 
+            // msktelefone
+            // 
+            this.msktelefone.Location = new System.Drawing.Point(168, 226);
+            this.msktelefone.Mask = "00000-0000";
+            this.msktelefone.Name = "msktelefone";
+            this.msktelefone.Size = new System.Drawing.Size(113, 26);
+            this.msktelefone.TabIndex = 23;
+            // 
+            // cbbestado
+            // 
+            this.cbbestado.FormattingEnabled = true;
+            this.cbbestado.Location = new System.Drawing.Point(358, 377);
+            this.cbbestado.Name = "cbbestado";
+            this.cbbestado.Size = new System.Drawing.Size(187, 28);
+            this.cbbestado.TabIndex = 22;
+            // 
+            // lbltelefone
+            // 
+            this.lbltelefone.AutoSize = true;
+            this.lbltelefone.Location = new System.Drawing.Point(164, 203);
+            this.lbltelefone.Name = "lbltelefone";
+            this.lbltelefone.Size = new System.Drawing.Size(71, 20);
+            this.lbltelefone.TabIndex = 21;
+            this.lbltelefone.Text = "Telefone";
+            // 
+            // lblestado
+            // 
+            this.lblestado.AutoSize = true;
+            this.lblestado.Location = new System.Drawing.Point(359, 346);
+            this.lblestado.Name = "lblestado";
+            this.lblestado.Size = new System.Drawing.Size(60, 20);
+            this.lblestado.TabIndex = 19;
+            this.lblestado.Text = "Estado";
+            // 
+            // lblbairro
+            // 
+            this.lblbairro.AutoSize = true;
+            this.lblbairro.Location = new System.Drawing.Point(501, 275);
+            this.lblbairro.Name = "lblbairro";
+            this.lblbairro.Size = new System.Drawing.Size(55, 20);
+            this.lblbairro.TabIndex = 18;
+            this.lblbairro.Text = "Bairro ";
+            // 
+            // txtnumero
+            // 
+            this.txtnumero.Location = new System.Drawing.Point(358, 298);
+            this.txtnumero.Name = "txtnumero";
+            this.txtnumero.Size = new System.Drawing.Size(113, 26);
+            this.txtnumero.TabIndex = 16;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(409, 113);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(48, 20);
+            this.lblEmail.TabIndex = 14;
+            this.lblEmail.Text = "Email";
+            this.lblEmail.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // txtbairro
+            // 
+            this.txtbairro.Location = new System.Drawing.Point(500, 298);
+            this.txtbairro.Name = "txtbairro";
+            this.txtbairro.Size = new System.Drawing.Size(213, 26);
+            this.txtbairro.TabIndex = 13;
+            // 
+            // lblcidade
+            // 
+            this.lblcidade.AutoSize = true;
+            this.lblcidade.Location = new System.Drawing.Point(44, 356);
+            this.lblcidade.Name = "lblcidade";
+            this.lblcidade.Size = new System.Drawing.Size(59, 20);
+            this.lblcidade.TabIndex = 12;
+            this.lblcidade.Text = "Cidade";
+            // 
+            // txtcidade
+            // 
+            this.txtcidade.Location = new System.Drawing.Point(44, 379);
+            this.txtcidade.Name = "txtcidade";
+            this.txtcidade.Size = new System.Drawing.Size(289, 26);
+            this.txtcidade.TabIndex = 11;
+            // 
+            // lblnumero
+            // 
+            this.lblnumero.AutoSize = true;
+            this.lblnumero.Location = new System.Drawing.Point(359, 275);
+            this.lblnumero.Name = "lblnumero";
+            this.lblnumero.Size = new System.Drawing.Size(65, 20);
+            this.lblnumero.TabIndex = 10;
+            this.lblnumero.Text = "Número";
+            // 
+            // txtendereco
+            // 
+            this.txtendereco.Location = new System.Drawing.Point(44, 298);
+            this.txtendereco.Name = "txtendereco";
+            this.txtendereco.Size = new System.Drawing.Size(289, 26);
+            this.txtendereco.TabIndex = 9;
+            // 
+            // lblendereco
+            // 
+            this.lblendereco.AutoSize = true;
+            this.lblendereco.Location = new System.Drawing.Point(44, 275);
+            this.lblendereco.Name = "lblendereco";
+            this.lblendereco.Size = new System.Drawing.Size(78, 20);
+            this.lblendereco.TabIndex = 8;
+            this.lblendereco.Text = "Endereço";
+            // 
             // mskcep
             // 
             this.mskcep.Location = new System.Drawing.Point(44, 226);
@@ -204,6 +321,7 @@ namespace Cantina
             this.mskcep.Name = "mskcep";
             this.mskcep.Size = new System.Drawing.Size(82, 26);
             this.mskcep.TabIndex = 7;
+            this.mskcep.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskcep_KeyDown);
             // 
             // lblCep
             // 
@@ -262,121 +380,6 @@ namespace Cantina
             this.lblCodigo.Size = new System.Drawing.Size(59, 20);
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código";
-            // 
-            // txtendereco
-            // 
-            this.txtendereco.Location = new System.Drawing.Point(44, 298);
-            this.txtendereco.Name = "txtendereco";
-            this.txtendereco.Size = new System.Drawing.Size(289, 26);
-            this.txtendereco.TabIndex = 9;
-            // 
-            // lblendereco
-            // 
-            this.lblendereco.AutoSize = true;
-            this.lblendereco.Location = new System.Drawing.Point(44, 275);
-            this.lblendereco.Name = "lblendereco";
-            this.lblendereco.Size = new System.Drawing.Size(78, 20);
-            this.lblendereco.TabIndex = 8;
-            this.lblendereco.Text = "Endereço";
-            // 
-            // txtcidade
-            // 
-            this.txtcidade.Location = new System.Drawing.Point(44, 379);
-            this.txtcidade.Name = "txtcidade";
-            this.txtcidade.Size = new System.Drawing.Size(289, 26);
-            this.txtcidade.TabIndex = 11;
-            // 
-            // lblnumero
-            // 
-            this.lblnumero.AutoSize = true;
-            this.lblnumero.Location = new System.Drawing.Point(359, 275);
-            this.lblnumero.Name = "lblnumero";
-            this.lblnumero.Size = new System.Drawing.Size(65, 20);
-            this.lblnumero.TabIndex = 10;
-            this.lblnumero.Text = "Número";
-            // 
-            // txtbairro
-            // 
-            this.txtbairro.Location = new System.Drawing.Point(500, 298);
-            this.txtbairro.Name = "txtbairro";
-            this.txtbairro.Size = new System.Drawing.Size(213, 26);
-            this.txtbairro.TabIndex = 13;
-            // 
-            // lblcidade
-            // 
-            this.lblcidade.AutoSize = true;
-            this.lblcidade.Location = new System.Drawing.Point(44, 356);
-            this.lblcidade.Name = "lblcidade";
-            this.lblcidade.Size = new System.Drawing.Size(59, 20);
-            this.lblcidade.TabIndex = 12;
-            this.lblcidade.Text = "Cidade";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(409, 113);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(48, 20);
-            this.lblEmail.TabIndex = 14;
-            this.lblEmail.Text = "Email";
-            this.lblEmail.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // txtnumero
-            // 
-            this.txtnumero.Location = new System.Drawing.Point(358, 298);
-            this.txtnumero.Name = "txtnumero";
-            this.txtnumero.Size = new System.Drawing.Size(113, 26);
-            this.txtnumero.TabIndex = 16;
-            // 
-            // lblbairro
-            // 
-            this.lblbairro.AutoSize = true;
-            this.lblbairro.Location = new System.Drawing.Point(501, 275);
-            this.lblbairro.Name = "lblbairro";
-            this.lblbairro.Size = new System.Drawing.Size(55, 20);
-            this.lblbairro.TabIndex = 18;
-            this.lblbairro.Text = "Bairro ";
-            // 
-            // lblestado
-            // 
-            this.lblestado.AutoSize = true;
-            this.lblestado.Location = new System.Drawing.Point(359, 346);
-            this.lblestado.Name = "lblestado";
-            this.lblestado.Size = new System.Drawing.Size(60, 20);
-            this.lblestado.TabIndex = 19;
-            this.lblestado.Text = "Estado";
-            // 
-            // lbltelefone
-            // 
-            this.lbltelefone.AutoSize = true;
-            this.lbltelefone.Location = new System.Drawing.Point(164, 203);
-            this.lbltelefone.Name = "lbltelefone";
-            this.lbltelefone.Size = new System.Drawing.Size(71, 20);
-            this.lbltelefone.TabIndex = 21;
-            this.lbltelefone.Text = "Telefone";
-            // 
-            // cbbestado
-            // 
-            this.cbbestado.FormattingEnabled = true;
-            this.cbbestado.Location = new System.Drawing.Point(358, 377);
-            this.cbbestado.Name = "cbbestado";
-            this.cbbestado.Size = new System.Drawing.Size(187, 28);
-            this.cbbestado.TabIndex = 22;
-            // 
-            // msktelefone
-            // 
-            this.msktelefone.Location = new System.Drawing.Point(168, 226);
-            this.msktelefone.Mask = "00000-0000";
-            this.msktelefone.Name = "msktelefone";
-            this.msktelefone.Size = new System.Drawing.Size(113, 26);
-            this.msktelefone.TabIndex = 23;
-            // 
-            // txtemail
-            // 
-            this.txtemail.Location = new System.Drawing.Point(413, 136);
-            this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(263, 26);
-            this.txtemail.TabIndex = 24;
             // 
             // frmFuncionarios
             // 
